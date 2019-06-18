@@ -39,8 +39,8 @@ class App(QMainWindow):
         self.width = 640
         self.height = 400
 
-        grid = QGridLayout()
-        self.setLayout(grid)
+        #grid = QGridLayout()
+        #self.setLayout(grid)
 
         #Initialize Subroutines
         self.arduino = arduino
