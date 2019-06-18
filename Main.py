@@ -239,7 +239,7 @@ class PlotCanvas(FigureCanvas):
                              verticalalignment='center', size=14)
                 continue
 
-            minmax = max(np.max(data[:,i]) - np.min(data[:,i]),0.5)
+            minmax = max(np.max(data[:,i]) - np.min(data[:,i]),10)
             norm_data = ((data[:, i]-np.mean(data[:,i])) / minmax) + i
 
             self.ax.plot(times, norm_data, 'C'+str(i))
