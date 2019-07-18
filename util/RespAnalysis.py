@@ -37,11 +37,13 @@ class RespData():
             filt_val = val
             self.frame_num += 1
             return
-        else:
+        #else:
             #Otherwise incorporate into our real-time filter
-            filt_val, self.filts_zi = signal.lfilter(self.filt_b,self.filt_a,val,axis=0,zi=self.filts_zi)
+        #    filt_val, self.filts_zi = signal.lfilter(self.filt_b,self.filt_a,val,axis=0,zi=self.filts_zi)
         #print(filt_val)
-        self.ring_buffer[idx,:] = self.ring_buffer[idx + self.buff_len,:] = -filt_val
+        
+        self.ring_buffer[idx,:] = self.ring_buffer[idx + self.buff_len,:] = val #filt_val
+        #print(val)
         buffer = self.ring_buffer[idx + 1:idx + 1 + self.buff_len,:]
 
         if self.frame_num % 4 == 0:#self.frame_num >= self.buff_len:
